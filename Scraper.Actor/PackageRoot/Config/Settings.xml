@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Section Name="ScraperActorServiceReplicatorConfig">
+    <Parameter Name="ReplicatorEndpoint" Value="ScraperActorServiceReplicatorEndpoint" />
+    <Parameter Name="BatchAcknowledgementInterval" Value="0.005" />
+  </Section>
+  <Section Name="ScraperActorServiceReplicatorSecurityConfig">
+    <Parameter Name="CredentialType" Value="None" />
+  </Section>
+  <Section Name="ScraperActorServiceConfig">
+    <Parameter Name="PageShift" Value="3" />
+    <Parameter Name="RunPerDays" Value="1" />
+  </Section>
+  <!-- The content will be generated during build -->
+</Settings>
