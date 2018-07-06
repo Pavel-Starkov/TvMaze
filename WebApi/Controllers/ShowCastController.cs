@@ -10,13 +10,12 @@ namespace WebApi.Controllers
     [Route("api/[controller]")]
     public class ShowCastController : Controller
     {
-        
-        public ShowCastController()
+        private IServiceFactory<IStorage> _storageFactory;
+        public IServiceFactory<IStorage> StorageFactory
         {
-            StorageFactory = new DefaultServiceFactory();
+            get => _storageFactory ?? (_storageFactory = new DefaultServiceFactory());
+            set => _storageFactory = value;
         }
-
-        public IServiceFactory<IStorage> StorageFactory { get; set; }
         // GET api/ShowCast/
         [HttpGet]
         public async Task<IActionResult> Get()

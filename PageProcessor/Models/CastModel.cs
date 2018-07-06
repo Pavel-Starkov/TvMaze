@@ -6,6 +6,6 @@ namespace PageProcessor.Models
     {
         public string id;
         public string name;
-        public DateTime? birthday;
+        public string birthday;
     }
 }

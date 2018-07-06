@@ -26,13 +26,13 @@ namespace Scraper.Actor
         /// <param name="actorService">The Microsoft.ServiceFabric.Actors.Runtime.ActorService that will host this actor instance.</param>
         /// <param name="actorId">The Microsoft.ServiceFabric.Actors.ActorId for this actor instance.</param>
         public Scraper(ActorService actorService, ActorId actorId) 
-            : base(actorService, actorId)
-        {
-            PageProcessorFactory = new DefaultServiceFactory();
+            : base(actorService, actorId){ }
+        
+        private IServiceFactory<IPageProcessor> _pageProcessorFactory;
+        public IServiceFactory<IPageProcessor> PageProcessorFactory {
+            get => _pageProcessorFactory ?? (_pageProcessorFactory = new DefaultServiceFactory());
+            set => _pageProcessorFactory = value;
         }
-
-
-        public IServiceFactory<IPageProcessor> PageProcessorFactory { get; set; }
 
         /// <summary>
         /// This method is called whenever an actor is activated.
